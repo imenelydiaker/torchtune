@@ -115,7 +115,7 @@ def gsm8k_sft(
         # 1 == discard the token, 0 == include the token in training
         mask = [1 for t in pre_tokens] + [0 for t in trainable_tokens]
 
-        return {"tokens": pre_tokens + trainable_tokens, "mask": mask}
+        return {"input_ids": pre_tokens + trainable_tokens, "mask": mask}
 
     def default_filter_fn(example: dict, idx: int):
         if partition is None:

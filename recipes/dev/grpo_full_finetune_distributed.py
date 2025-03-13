@@ -959,8 +959,7 @@ class FullGRPOFinetuneRecipeDistributed(FTRecipeInterface):
                 ):
                     torch.cuda.memory._record_memory_history()
 
-                tokens = batch["tokens"]  # type: ignore
-                answers = batch["answers"]  # type: ignore
+                tokens = batch["input_ids"]  # type: ignore
                 tokens = tokens.to(self._device)  # [B, P]
 
                 _, context_length = tokens.shape
